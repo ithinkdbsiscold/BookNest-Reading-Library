@@ -1,312 +1,309 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BookNest Reading Library</title>
+    <meta name="description" content="BookNest Reading Library in Nava Vadaj, Ahmedabad. A calm AC study space with Wi-Fi, 24/7 access plans, lockers, water, and clean facilities.">
+    <title>BookNest Reading Library | Focus Space in Ahmedabad</title>
     <link rel="icon" type="image/png" href="./logo/WhatsApp_Image_2026-04-27_at_8.40.02_PM-removebg-preview.png">
-
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
-        rel="stylesheet">
-
-    <!-- AOS CSS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        darkBrown: '#2C1E16',
-                        lightBrown: '#4A3525',
-                        cream: '#FDFBF7',
-                        softGold: '#D4AF37',
-                        goldHover: '#B5952F'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                    }
-                }
-            }
-        }
-    </script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
-<body class="bg-cream text-darkBrown font-sans antialiased overflow-x-hidden">
-
-    <!-- Navbar -->
-    <nav class="fixed w-full z-50 transition-all duration-300 py-2" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-32 transition-all duration-300" id="nav-container">
-                <a href="index.html" class="flex items-center gap-3 group">
-                    <img src="./logo/WhatsApp_Image_2026-04-27_at_8.40.02_PM-removebg-preview.png" alt="BookNest Logo"
-                        class="h-28 w-28 object-contain transition-all duration-300" id="nav-logo">
-                    <span
-                        class="font-serif text-3xl font-bold tracking-wide transition-colors duration-300 nav-text">BookNest</span>
-                </a>
-
-                <div class="hidden md:flex items-center gap-6">
-                    <div class="text-sm font-medium text-right mr-4 transition-colors duration-300 nav-text">
-                        Contact: Ushaben Soni <br>
-                        <span class="transition-colors duration-300 nav-text-muted">(+91 6352486412)</span>
-                    </div>
-                    <a href="tel:+916352486412"
-                        class="px-5 py-2.5 border-2 font-semibold rounded-md transition-colors duration-300 nav-btn-outline">Call
-                        Now</a>
-                    <a href="https://api.whatsapp.com/send?phone=916352486412&text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20BookNest%20Reading%20Library." target="_blank"
-                        class="px-5 py-2.5 bg-softGold text-darkBrown font-semibold rounded-md hover:bg-goldHover transition-colors duration-300 flex items-center gap-2">
-                        <i class="fab fa-whatsapp text-lg"></i> WhatsApp Us
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Mobile Sticky Contact Bar -->
-    <div
-        class="md:hidden fixed bottom-0 w-full bg-darkBrown text-cream z-50 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] flex border-t border-lightBrown">
-        <a href="tel:+916352486412"
-            class="flex-1 py-4 text-center font-medium border-r border-lightBrown flex flex-col items-center justify-center gap-1 hover:bg-lightBrown transition-colors">
-            <i class="fas fa-phone"></i>
-            <span class="text-xs tracking-wider">CALL NOW</span>
-        </a>
-        <a href="https://api.whatsapp.com/send?phone=916352486412&text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20BookNest%20Reading%20Library." target="_blank"
-            class="flex-1 py-4 text-center font-medium text-softGold flex flex-col items-center justify-center gap-1 hover:bg-lightBrown transition-colors">
-            <i class="fab fa-whatsapp text-lg"></i>
-            <span class="text-xs tracking-wider">WHATSAPP</span>
-        </a>
-    </div>
-
-    <!-- Floating WhatsApp Button (Desktop) -->
-    <a href="https://api.whatsapp.com/send?phone=916352486412&text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20BookNest%20Reading%20Library." target="_blank"
-        class="hidden md:flex fixed bottom-8 right-8 z-50 bg-[#25D366] text-white w-16 h-16 rounded-full items-center justify-center text-3xl shadow-[0_10px_20px_rgba(37,211,102,0.4)] hover:scale-110 transition-transform duration-300 float-animation">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- Hero Section -->
-    <header class="relative h-screen flex items-center justify-center overflow-hidden">
-        <!-- Parallax Background -->
-        <div class="absolute inset-0 w-full h-[120%] bg-cover bg-center parallax-bg z-0"
-            style="background-image: url('./background/one-thick-book-opened-on-260nw-498171619.jpg'); top: -10%;">
-        </div>
-        <!-- Overlay -->
-        <div class="absolute inset-0 bg-darkBrown/80 z-10 backdrop-blur-[2px]"></div>
-
-        <div class="relative z-20 text-center px-4 max-w-4xl mx-auto" data-aos="fade-up" data-aos-duration="1500">
-            <h1 class="font-serif text-5xl md:text-7xl font-bold text-cream mb-6 leading-tight drop-shadow-lg">Your
-                Sanctuary for Focus.</h1>
-            <p class="text-xl md:text-2xl text-cream/90 font-light tracking-wide mb-10 drop-shadow-md">The premier quiet
-                study space in Ahmedabad.</p>
-            <div class="w-24 h-1 bg-softGold mx-auto rounded"></div>
-        </div>
-
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce">
-            <a href="#gallery" class="text-cream/70 hover:text-softGold transition-colors">
-                <i class="fas fa-chevron-down text-3xl"></i>
+<body>
+    <header class="site-header" data-header>
+        <div class="nav-shell">
+            <a class="brand" href="index.html" aria-label="BookNest home">
+                <img src="./logo/WhatsApp_Image_2026-04-27_at_8.40.02_PM-removebg-preview.png" alt="BookNest logo">
+                <span>
+                    <strong>BookNest</strong>
+                    <small>Reading Library</small>
+                </span>
             </a>
+
+            <nav class="primary-nav" aria-label="Primary navigation">
+                <a href="index.html" aria-current="page">Home</a>
+                <a href="facilities.html">Facilities</a>
+                <a href="plans.html">Plans</a>
+                <a href="#visit">Visit</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a class="icon-link" href="tel:+916352486412" aria-label="Call BookNest">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>Call</span>
+                </a>
+                <a class="btn btn-gold" href="https://api.whatsapp.com/send?phone=916352486412&text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20BookNest%20Reading%20Library." target="_blank" rel="noreferrer">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    WhatsApp
+                </a>
+            </div>
+
+            <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" data-nav-toggle>
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <div class="mobile-menu" id="mobile-menu" data-mobile-menu>
+            <a href="index.html">Home</a>
+            <a href="facilities.html">Facilities</a>
+            <a href="plans.html">Plans</a>
+            <a href="#visit">Visit</a>
+            <a href="tel:+916352486412">Call +91 6352486412</a>
         </div>
     </header>
 
-    <!-- Interior Gallery Carousel -->
-    <section id="gallery" class="py-24 bg-darkBrown text-cream overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center" data-aos="fade-up">
-            <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6 text-softGold">Inside the Sanctuary</h2>
-            <p class="text-cream/80 max-w-2xl mx-auto text-lg">A glimpse into your future productive space.</p>
-        </div>
-
-        <div class="relative w-full max-w-5xl mx-auto carousel-container rounded-2xl overflow-hidden shadow-2xl"
-            data-aos="zoom-in" data-aos-duration="1000">
-            <div class="carousel-track flex transition-transform duration-700 ease-in-out h-[400px] md:h-[600px]">
-                <img src="./photos of library/223436c8-5cd7-426c-996a-768c2611f64a.jpg" alt="Library Interior 1"
-                    class="w-full object-cover flex-shrink-0">
-                <img src="./photos of library/WhatsApp Image 2026-05-12 at 2.12.02 PM.jpeg" alt="Library Interior 2"
-                    class="w-full object-cover flex-shrink-0">
-                <img src="./photos of library/a7e9063f-65ca-4392-b2ff-01fb7ee93828.jpg" alt="Library Interior 3"
-                    class="w-full object-cover flex-shrink-0">
-                <img src="./photos of library/b2025b64-4ef3-4805-8c76-f649030d92d9.jpg" alt="Library Interior 4"
-                    class="w-full object-cover flex-shrink-0">
-                <img src="./photos of library/f5176aee-6405-4f60-8537-ad915df995c6.jpg" alt="Library Interior 5"
-                    class="w-full object-cover flex-shrink-0">
-            </div>
-
-            <!-- Carousel Controls -->
-            <button
-                class="absolute top-1/2 -translate-y-1/2 left-4 w-12 h-12 bg-darkBrown/50 hover:bg-darkBrown text-cream rounded-full backdrop-blur flex items-center justify-center transition-all prev-btn focus:outline-none">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <button
-                class="absolute top-1/2 -translate-y-1/2 right-4 w-12 h-12 bg-darkBrown/50 hover:bg-darkBrown text-cream rounded-full backdrop-blur flex items-center justify-center transition-all next-btn focus:outline-none">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-
-            <!-- Indicators -->
-            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 carousel-indicators">
-                <div class="w-3 h-3 rounded-full bg-softGold transition-all cursor-pointer"></div>
-                <div class="w-3 h-3 rounded-full bg-cream/50 transition-all cursor-pointer"></div>
-                <div class="w-3 h-3 rounded-full bg-cream/50 transition-all cursor-pointer"></div>
-                <div class="w-3 h-3 rounded-full bg-cream/50 transition-all cursor-pointer"></div>
-                <div class="w-3 h-3 rounded-full bg-cream/50 transition-all cursor-pointer"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Explore Links Section -->
-    <section id="explore" class="py-24 bg-cream relative border-b border-darkBrown/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="font-serif text-4xl md:text-5xl font-bold text-darkBrown mb-6">Discover BookNest</h2>
-                <p class="text-lightBrown max-w-2xl mx-auto text-lg leading-relaxed">Explore our premium facilities and find the perfect membership plan tailored for your focus.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
-                <!-- Facilities Button Card -->
-                <a href="facilities.html" class="group block relative overflow-hidden rounded-2xl shadow-lg border border-darkBrown/10 bg-white" data-aos="fade-right">
-                    <div class="h-56 md:h-72 overflow-hidden relative">
-                        <div class="absolute inset-0 bg-darkBrown/30 group-hover:bg-darkBrown/10 transition-colors z-10 duration-500"></div>
-                        <img src="./photos of library/a7e9063f-65ca-4392-b2ff-01fb7ee93828.jpg" alt="Facilities" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 flex items-center justify-center z-20">
-                             <div class="bg-darkBrown/80 backdrop-blur-sm text-cream px-8 py-4 rounded-full font-serif text-2xl font-bold tracking-wider border border-softGold/30 group-hover:bg-softGold group-hover:text-darkBrown transition-all duration-500 shadow-xl flex items-center gap-3">
-                                <i class="fas fa-building"></i> View Facilities
-                             </div>
-                        </div>
-                    </div>
-                    <div class="p-8 relative z-20 bg-white">
-                        <p class="text-gray-600 text-center text-lg">Discover our climate-controlled environment, zen zones, and premium amenities designed for ultimate concentration.</p>
-                    </div>
-                </a>
-
-                <!-- Plans Button Card -->
-                <a href="plans.html" class="group block relative overflow-hidden rounded-2xl shadow-lg border border-darkBrown/10 bg-white" data-aos="fade-left">
-                    <div class="h-56 md:h-72 overflow-hidden relative">
-                        <div class="absolute inset-0 bg-darkBrown/30 group-hover:bg-darkBrown/10 transition-colors z-10 duration-500"></div>
-                        <img src="./background/one-thick-book-opened-on-260nw-498171619.jpg" alt="Plans" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 flex items-center justify-center z-20">
-                             <div class="bg-darkBrown/80 backdrop-blur-sm text-cream px-8 py-4 rounded-full font-serif text-2xl font-bold tracking-wider border border-softGold/30 group-hover:bg-softGold group-hover:text-darkBrown transition-all duration-500 shadow-xl flex items-center gap-3">
-                                <i class="fas fa-crown"></i> Subscription Plans
-                             </div>
-                        </div>
-                    </div>
-                    <div class="p-8 relative z-20 bg-white">
-                        <p class="text-gray-600 text-center text-lg">Choose from our flexible Standard, Executive, or Premium tiers to perfectly match your study schedule and requirements.</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- Location & Contact Section -->
-    <section class="py-24 bg-darkBrown text-cream relative overflow-hidden border-t border-lightBrown">
-        <!-- Abstract glowing orbs for anti-gravity feel -->
-        <div
-            class="absolute top-0 right-0 w-96 h-96 bg-softGold/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2">
-        </div>
-        <div
-            class="absolute bottom-0 left-0 w-96 h-96 bg-softGold/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2">
-        </div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-
-                <!-- Contact Info -->
-                <div data-aos="fade-right">
-                    <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6 text-softGold">Find Your Space</h2>
-                    <p class="text-cream/80 text-lg mb-12 leading-relaxed">Conveniently located in Ahmedabad, BookNest
-                        offers a serene environment away from the city's hustle.</p>
-
-                    <div class="space-y-8 mb-12">
-                        <div class="flex gap-5 items-start">
-                            <div
-                                class="w-14 h-14 rounded-full bg-softGold/10 flex items-center justify-center text-softGold flex-shrink-0 border border-softGold/20">
-                                <i class="fas fa-map-marker-alt text-2xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-xl mb-2 text-white">Location</h4>
-                                <p class="text-cream/70 leading-relaxed text-lg">
-                                    3rd Floor, Vishv Arcade,<br>
-                                    Landmark: Ladlee Junction,<br>
-                                    Akhbarnagar, Nava Vadaj,<br>
-                                    Ahmedabad.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex gap-5 items-start">
-                            <div
-                                class="w-14 h-14 rounded-full bg-softGold/10 flex items-center justify-center text-softGold flex-shrink-0 border border-softGold/20">
-                                <i class="fas fa-phone-alt text-2xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-xl mb-2 text-white">Contact</h4>
-                                <p class="text-cream/70 text-lg">
-                                    Ushaben Soni<br>
-                                    <a href="tel:+916352486412"
-                                        class="text-softGold hover:text-white transition-colors text-xl font-semibold mt-1 inline-block">+91
-                                        6352486412</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <a href="https://share.google/HSW4EG1pjG1D4ppFX" target="_blank"
-                        class="inline-flex items-center gap-3 bg-cream text-darkBrown px-8 py-4 rounded font-bold hover:bg-softGold transition-colors duration-300 shadow-lg">
-                        <i class="fas fa-map"></i> View the Google Page
+    <main>
+        <section class="hero home-hero">
+            <div class="hero-bg" style="background-image: url('./photos of library/223436c8-5cd7-426c-996a-768c2611f64a.jpg');"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content reveal">
+                <p class="eyebrow">AC study space in Nava Vadaj, Ahmedabad</p>
+                <h1>BookNest Reading Library</h1>
+                <p class="hero-copy">A calm, polished place to study, read, revise, and work without distractions. Choose a seat, settle in, and let the room do half the focusing for you.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-gold" href="plans.html">
+                        <i class="fa-solid fa-layer-group"></i>
+                        View plans
+                    </a>
+                    <a class="btn btn-light" href="facilities.html">
+                        <i class="fa-solid fa-chair"></i>
+                        Explore facilities
                     </a>
                 </div>
+                <div class="hero-meta" aria-label="Library highlights">
+                    <span><i class="fa-solid fa-clock"></i> 24/7 access plans</span>
+                    <span><i class="fa-solid fa-wifi"></i> High-speed Wi-Fi</span>
+                    <span><i class="fa-solid fa-snowflake"></i> Fully AC</span>
+                </div>
+            </div>
+        </section>
 
-                <!-- Exterior Sliding Gallery -->
-                <div class="relative rounded-2xl overflow-hidden shadow-2xl h-[400px] md:h-[500px] border border-lightBrown"
-                    data-aos="fade-left">
-                    <div class="absolute inset-0 flex transition-transform duration-1000 ease-in-out exterior-track">
-                        <img src="./the outside for more reference/a2258656-799e-41d6-a034-55044809b318.jpg"
-                            alt="Building Exterior" class="w-full h-full object-cover flex-shrink-0">
-                        <img src="./the outside for more reference/cab314fd-340b-4ee9-b63c-b6560b51e01b.jpg"
-                            alt="Building Exterior" class="w-full h-full object-cover flex-shrink-0">
-                        <img src="./the outside for more reference/dd02149e-997e-4c65-a824-62a8354b1008.jpg"
-                            alt="Building Exterior" class="w-full h-full object-cover flex-shrink-0">
-                    </div>
-                    <div
-                        class="absolute bottom-6 right-6 bg-darkBrown/80 backdrop-blur-md text-cream px-5 py-2.5 rounded text-sm font-semibold tracking-wider uppercase border border-softGold/30">
-                        Exterior View
+        <section class="quick-strip" aria-label="Quick library details">
+            <div>
+                <strong>3 plans</strong>
+                <span>Start from &#8377;1,000/month</span>
+            </div>
+            <div>
+                <strong>Premium comfort</strong>
+                <span>AC, water, Wi-Fi, lockers</span>
+            </div>
+            <div>
+                <strong>Easy visit</strong>
+                <span>Vishv Arcade, Akhbarnagar</span>
+            </div>
+            <a href="#visit">
+                Get directions
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </section>
+
+        <section class="section section-light">
+            <div class="section-grid align-center">
+                <div class="section-copy reveal">
+                    <p class="eyebrow">Why it feels better</p>
+                    <h2>Designed for students who need the room to cooperate.</h2>
+                    <p>BookNest keeps the choices simple: a quiet seat, controlled temperature, reliable internet, clean essentials, and membership options that match your routine.</p>
+                    <div class="feature-list">
+                        <span><i class="fa-solid fa-volume-xmark"></i> Quiet study atmosphere</span>
+                        <span><i class="fa-solid fa-bottle-water"></i> Mineral water available</span>
+                        <span><i class="fa-solid fa-lock"></i> Locker option on Premium</span>
                     </div>
                 </div>
 
+                <div class="image-card reveal">
+                    <img src="./photos of library/WhatsApp Image 2026-05-12 at 2.12.02 PM.jpeg" alt="BookNest reading area with individual desks">
+                    <div class="image-note">
+                        <strong>Focus-first layout</strong>
+                        <span>Comfortable individual seating for long study sessions.</span>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="bg-[#150f0b] py-10 text-center text-cream/50 pb-28 md:pb-10">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex flex-col items-center justify-center gap-4 mb-6">
-                <a href="index.html"
-                    class="flex items-center gap-3 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                    <img src="./logo/WhatsApp_Image_2026-04-27_at_8.40.02_PM-removebg-preview.png" alt="Logo"
-                        class="w-8 h-8 object-contain">
-                    <span class="font-serif font-bold text-cream tracking-widest uppercase text-lg">BookNest</span>
-                </a>
-                <div class="w-12 h-0.5 bg-softGold/30 rounded"></div>
+        <section class="section section-dark">
+            <div class="section-heading reveal">
+                <p class="eyebrow">Inside the space</p>
+                <h2>A closer look before you visit.</h2>
+                <p>Browse the study room, seating, and atmosphere using the real library photos.</p>
             </div>
-            <p class="text-sm">&copy; 2026 BookNest Reading Library. All Rights Reserved.</p>
-        </div>
+
+            <div class="carousel reveal" data-carousel data-autoplay="5200">
+                <div class="carousel-track">
+                    <figure class="carousel-slide">
+                        <img src="./photos of library/a7e9063f-65ca-4392-b2ff-01fb7ee93828.jpg" alt="Library seating area">
+                        <figcaption>Comfortable rows for focused study.</figcaption>
+                    </figure>
+                    <figure class="carousel-slide">
+                        <img src="./photos of library/b2025b64-4ef3-4805-8c76-f649030d92d9.jpg" alt="Library desks and chairs">
+                        <figcaption>Simple desks, clean lines, fewer distractions.</figcaption>
+                    </figure>
+                    <figure class="carousel-slide">
+                        <img src="./photos of library/f5176aee-6405-4f60-8537-ad915df995c6.jpg" alt="BookNest study room">
+                        <figcaption>Bright, tidy interiors for everyday consistency.</figcaption>
+                    </figure>
+                    <figure class="carousel-slide">
+                        <img src="./photos of library/223436c8-5cd7-426c-996a-768c2611f64a.jpg" alt="Quiet study seating at BookNest">
+                        <figcaption>A calm room that supports long revision hours.</figcaption>
+                    </figure>
+                </div>
+                <button class="carousel-btn carousel-prev" type="button" data-carousel-prev aria-label="Previous photo">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn carousel-next" type="button" data-carousel-next aria-label="Next photo">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+                <div class="carousel-dots" data-carousel-dots aria-label="Gallery controls"></div>
+            </div>
+        </section>
+
+        <section class="section section-light">
+            <div class="section-heading reveal">
+                <p class="eyebrow">Pick your routine</p>
+                <h2>Plans that are easy to compare.</h2>
+                <p>Choose based on how long you study and whether you want a locker.</p>
+            </div>
+
+            <div class="plans-preview">
+                <article class="plan-card reveal">
+                    <div class="plan-top">
+                        <h3>Standard</h3>
+                        <span>6 hours daily</span>
+                    </div>
+                    <p class="price">&#8377;1,000 <small>/month</small></p>
+                    <p>Best for fixed daily study blocks and regular revision.</p>
+                    <a class="btn btn-outline" href="plans.html#standard">View plan</a>
+                </article>
+
+                <article class="plan-card plan-featured reveal">
+                    <div class="popular-tag">Most chosen</div>
+                    <div class="plan-top">
+                        <h3>Executive</h3>
+                        <span>24-hour access</span>
+                    </div>
+                    <p class="price">&#8377;1,500 <small>/month</small></p>
+                    <p>Best for flexible schedules, exams, and serious long-hour prep.</p>
+                    <a class="btn btn-gold" href="plans.html#executive">View plan</a>
+                </article>
+
+                <article class="plan-card reveal">
+                    <div class="plan-top">
+                        <h3>Premium</h3>
+                        <span>24-hour + locker</span>
+                    </div>
+                    <p class="price">&#8377;2,000 <small>/month</small></p>
+                    <p>Best if you want unlimited access plus personal storage.</p>
+                    <a class="btn btn-outline" href="plans.html#premium">View plan</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="section section-muted">
+            <div class="section-heading reveal">
+                <p class="eyebrow">Facilities</p>
+                <h2>Small details that make long sessions easier.</h2>
+            </div>
+
+            <div class="facility-grid">
+                <article class="facility-card reveal">
+                    <i class="fa-solid fa-snowflake"></i>
+                    <h3>Climate controlled</h3>
+                    <p>Fully air-conditioned study environment for steady comfort.</p>
+                </article>
+                <article class="facility-card reveal">
+                    <i class="fa-solid fa-wifi"></i>
+                    <h3>Fast Wi-Fi</h3>
+                    <p>Reliable connectivity for research, forms, lectures, and work.</p>
+                </article>
+                <article class="facility-card reveal">
+                    <i class="fa-solid fa-lock"></i>
+                    <h3>Locker option</h3>
+                    <p>Premium members can keep essentials safely at the library.</p>
+                </article>
+                <article class="facility-card reveal">
+                    <i class="fa-solid fa-hand-sparkles"></i>
+                    <h3>Clean essentials</h3>
+                    <p>Mineral water and well-maintained washrooms for daily use.</p>
+                </article>
+            </div>
+
+            <div class="center-action reveal">
+                <a class="btn btn-dark" href="facilities.html">
+                    <i class="fa-solid fa-table-cells-large"></i>
+                    See all facilities
+                </a>
+            </div>
+        </section>
+
+        <section class="section section-dark visit-section" id="visit">
+            <div class="section-grid align-center">
+                <div class="visit-copy reveal">
+                    <p class="eyebrow">Visit BookNest</p>
+                    <h2>Come see the space in person.</h2>
+                    <div class="contact-stack">
+                        <div>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <p>
+                                <strong>3rd Floor, Vishv Arcade</strong>
+                                Ladlee Junction, Akhbarnagar, Nava Vadaj, Ahmedabad.
+                            </p>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-user"></i>
+                            <p>
+                                <strong>Ushaben Soni</strong>
+                                <a href="tel:+916352486412">+91 6352486412</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="hero-actions">
+                        <a class="btn btn-gold" href="https://api.whatsapp.com/send?phone=916352486412&text=Hi%2C%20I%20would%20like%20to%20visit%20BookNest%20Reading%20Library." target="_blank" rel="noreferrer">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            Plan a visit
+                        </a>
+                        <a class="btn btn-light" href="https://share.google/HSW4EG1pjG1D4ppFX" target="_blank" rel="noreferrer">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                            Google page
+                        </a>
+                    </div>
+                </div>
+
+                <div class="exterior-grid reveal" aria-label="Exterior photos">
+                    <img src="./the outside for more reference/a2258656-799e-41d6-a034-55044809b318.jpg" alt="BookNest building exterior">
+                    <img src="./the outside for more reference/cab314fd-340b-4ee9-b63c-b6560b51e01b.jpg" alt="Building entrance near BookNest">
+                    <img src="./the outside for more reference/dd02149e-997e-4c65-a824-62a8354b1008.jpg" alt="Exterior reference for BookNest location">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="mobile-contact-bar" aria-label="Quick contact">
+        <a href="tel:+916352486412">
+            <i class="fa-solid fa-phone"></i>
+            Call
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=916352486412&text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20BookNest%20Reading%20Library." target="_blank" rel="noreferrer">
+            <i class="fa-brands fa-whatsapp"></i>
+            WhatsApp
+        </a>
+    </div>
+
+    <a class="floating-whatsapp" href="https://api.whatsapp.com/send?phone=916352486412&text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20BookNest%20Reading%20Library." target="_blank" rel="noreferrer" aria-label="Message BookNest on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <footer class="site-footer">
+        <a class="footer-brand" href="index.html">
+            <img src="./logo/WhatsApp_Image_2026-04-27_at_8.40.02_PM-removebg-preview.png" alt="BookNest logo">
+            <span>BookNest Reading Library</span>
+        </a>
+        <p>&copy; 2026 BookNest Reading Library. All Rights Reserved.</p>
     </footer>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
 
