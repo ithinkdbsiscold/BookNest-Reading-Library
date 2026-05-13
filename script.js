@@ -96,3 +96,92 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
     setSlide(0);
     restart();
 });
+
+const enquiryForm = document.querySelector("[data-enquiry-form]");
+
+if (enquiryForm) {
+    const planSelect = enquiryForm.querySelector("[data-plan-select]");
+    const standardSlot = enquiryForm.querySelector("[data-standard-slot]");
+    const startTimeInput = enquiryForm.querySelector("[data-start-time]");
+    const slotPreview = enquiryForm.querySelector("[data-slot-preview]");
+    const formStatus = enquiryForm.querySelector("[data-form-status]");
+
+    const plans = {
+        standard: "Standard - 6 hours daily - Rs. 1,000/month",
+        executive: "Executive - 24-hour access - Rs. 1,500/month",
+        premium: "Premium - 24-hour access + locker - Rs. 2,000/month",
+    };
+
+    const formatTime = (totalMinutes) => {
+        const dayMinutes = ((totalMinutes % 1440) + 1440) % 1440;
+        const hour24 = Math.floor(dayMinutes / 60);
+        const minutes = dayMinutes % 60;
+        const suffix = hour24 >= 12 ? "PM" : "AM";
+        const hour12 = hour24 % 12 || 12;
+        return `${hour12}:${String(minutes).padStart(2, "0")} ${suffix}`;
+    };
+
+    const getSlotRange = () => {
+        if (!startTimeInput.value) return "";
+        const [hours, minutes] = startTimeInput.value.split(":").map(Number);
+        const start = hours * 60 + minutes;
+        return `${formatTime(start)} to ${formatTime(start + 360)}`;
+    };
+
+    const updateSlotState = () => {
+        const isStandard = planSelect.value === "standard";
+        standardSlot.hidden = !isStandard;
+        slotPreview.hidden = !isStandard;
+        startTimeInput.required = isStandard;
+
+        if (!isStandard) {
+            startTimeInput.value = "";
+            slotPreview.querySelector("span").textContent = "Your 6-hour slot will appear here.";
+            return;
+        }
+
+        const range = getSlotRange();
+        slotPreview.querySelector("span").textContent = range
+            ? `Your Standard plan slot: ${range}`
+            : "Select a start time and we will calculate the 6-hour slot.";
+    };
+
+    const requestedPlan = new URLSearchParams(window.location.search).get("plan");
+    if (requestedPlan && plans[requestedPlan]) {
+        planSelect.value = requestedPlan;
+    }
+
+    updateSlotState();
+    planSelect.addEventListener("change", updateSlotState);
+    startTimeInput.addEventListener("input", updateSlotState);
+
+    enquiryForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        if (!enquiryForm.reportValidity()) return;
+
+        const formData = new FormData(enquiryForm);
+        const name = String(formData.get("name")).trim();
+        const phone = String(formData.get("phone")).trim();
+        const plan = String(formData.get("plan"));
+        const slotRange = plan === "standard" ? getSlotRange() : "";
+
+        const messageLines = [
+            "New BookNest enquiry",
+            "",
+            `Name: ${name}`,
+            `Phone: ${phone}`,
+            `Plan: ${plans[plan]}`,
+        ];
+
+        if (slotRange) {
+            messageLines.push(`Preferred time slot: ${slotRange}`);
+        }
+
+        messageLines.push("", "Please contact me with the next steps.");
+
+        const whatsappUrl = `https://api.whatsapp.com/send?phone=916352486412&text=${encodeURIComponent(messageLines.join("\n"))}`;
+        formStatus.textContent = "Opening WhatsApp with your enquiry details...";
+        window.open(whatsappUrl, "_blank", "noopener");
+    });
+}
