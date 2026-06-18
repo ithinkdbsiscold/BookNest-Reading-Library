@@ -107,8 +107,9 @@ if (enquiryForm) {
     const formStatus = enquiryForm.querySelector("[data-form-status]");
 
     const plans = {
-        standard: "Standard - 6 hours daily - Rs. 1,000/month",
-        executive: "Executive - 24-hour access - Rs. 1,500/month",
+        standard: "Standard - 6 hours daily - Rs. 800/month",
+        "standard-plus": "Standard Plus - 8 hours daily - Rs. 1,000/month",
+        executive: "Executive - 24-hour access - Rs. 1,800/month",
         premium: "Premium - 24-hour access + locker - Rs. 2,000/month",
     };
 
@@ -121,29 +122,32 @@ if (enquiryForm) {
         return `${hour12}:${String(minutes).padStart(2, "0")} ${suffix}`;
     };
 
-    const getSlotRange = () => {
+    const getSlotRange = (duration = 360) => {
         if (!startTimeInput.value) return "";
         const [hours, minutes] = startTimeInput.value.split(":").map(Number);
         const start = hours * 60 + minutes;
-        return `${formatTime(start)} to ${formatTime(start + 360)}`;
+        return `${formatTime(start)} to ${formatTime(start + duration)}`;
     };
 
     const updateSlotState = () => {
         const isStandard = planSelect.value === "standard";
-        standardSlot.hidden = !isStandard;
-        slotPreview.hidden = !isStandard;
-        startTimeInput.required = isStandard;
+        const isStandardPlus = planSelect.value === "standard-plus";
+        const showSlot = isStandard || isStandardPlus;
+        const slotHours = isStandardPlus ? 8 : 6;
+        standardSlot.hidden = !showSlot;
+        slotPreview.hidden = !showSlot;
+        startTimeInput.required = showSlot;
 
-        if (!isStandard) {
+        if (!showSlot) {
             startTimeInput.value = "";
-            slotPreview.querySelector("span").textContent = "Your 6-hour slot will appear here.";
+            slotPreview.querySelector("span").textContent = `Your ${slotHours}-hour slot will appear here.`;
             return;
         }
 
-        const range = getSlotRange();
+        const range = getSlotRange(slotHours * 60);
         slotPreview.querySelector("span").textContent = range
-            ? `Your Standard plan slot: ${range}`
-            : "Select a start time and we will calculate the 6-hour slot.";
+            ? `Your ${planSelect.value === "standard-plus" ? "Standard Plus" : "Standard"} plan slot: ${range}`
+            : `Select a start time and we will calculate the ${slotHours}-hour slot.`;
     };
 
     const requestedPlan = new URLSearchParams(window.location.search).get("plan");
@@ -164,7 +168,7 @@ if (enquiryForm) {
         const name = String(formData.get("name")).trim();
         const phone = String(formData.get("phone")).trim();
         const plan = String(formData.get("plan"));
-        const slotRange = plan === "standard" ? getSlotRange() : "";
+        const slotRange = (plan === "standard" || plan === "standard-plus") ? getSlotRange(plan === "standard-plus" ? 480 : 360) : "";
 
         const messageLines = [
             "New BookNest enquiry",
