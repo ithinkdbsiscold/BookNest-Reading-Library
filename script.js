@@ -109,6 +109,7 @@ if (enquiryForm) {
     const plans = {
         standard: "Standard - 6 hours daily - Rs. 800/month",
         "standard-plus": "Standard Plus - 8 hours daily - Rs. 1,000/month",
+        extended: "Extended - 12 hours daily - Rs. 1,500/month",
         executive: "Executive - 24-hour access - Rs. 1,800/month",
         premium: "Premium - 24-hour access + locker - Rs. 2,000/month",
     };
@@ -132,8 +133,9 @@ if (enquiryForm) {
     const updateSlotState = () => {
         const isStandard = planSelect.value === "standard";
         const isStandardPlus = planSelect.value === "standard-plus";
-        const showSlot = isStandard || isStandardPlus;
-        const slotHours = isStandardPlus ? 8 : 6;
+        const isExtended = planSelect.value === "extended";
+        const showSlot = isStandard || isStandardPlus || isExtended;
+        const slotHours = isExtended ? 12 : (isStandardPlus ? 8 : 6);
         standardSlot.hidden = !showSlot;
         slotPreview.hidden = !showSlot;
         startTimeInput.required = showSlot;
@@ -145,8 +147,9 @@ if (enquiryForm) {
         }
 
         const range = getSlotRange(slotHours * 60);
+        const planName = isExtended ? "Extended" : (isStandardPlus ? "Standard Plus" : "Standard");
         slotPreview.querySelector("span").textContent = range
-            ? `Your ${planSelect.value === "standard-plus" ? "Standard Plus" : "Standard"} plan slot: ${range}`
+            ? `Your ${planName} plan slot: ${range}`
             : `Select a start time and we will calculate the ${slotHours}-hour slot.`;
     };
 
@@ -168,7 +171,10 @@ if (enquiryForm) {
         const name = String(formData.get("name")).trim();
         const phone = String(formData.get("phone")).trim();
         const plan = String(formData.get("plan"));
-        const slotRange = (plan === "standard" || plan === "standard-plus") ? getSlotRange(plan === "standard-plus" ? 480 : 360) : "";
+        const isStandard = plan === "standard";
+        const isStandardPlus = plan === "standard-plus";
+        const isExtended = plan === "extended";
+        const slotRange = (isStandard || isStandardPlus || isExtended) ? getSlotRange(isExtended ? 720 : (isStandardPlus ? 480 : 360)) : "";
 
         const messageLines = [
             "New BookNest enquiry",
