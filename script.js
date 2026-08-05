@@ -112,6 +112,7 @@ if (enquiryForm) {
         extended: "Extended - 12 hours daily - Rs. 1,500/month",
         executive: "Executive - 24-hour access - Rs. 1,800/month",
         premium: "Premium - 24-hour access + locker - Rs. 2,000/month",
+        "exclusive-room": "Exclusive Room - 16 hours daily (7 AM-12 AM) - Rs. 1,800/month",
     };
 
     const formatTime = (totalMinutes) => {
@@ -174,6 +175,7 @@ if (enquiryForm) {
         const isStandard = plan === "standard";
         const isStandardPlus = plan === "standard-plus";
         const isExtended = plan === "extended";
+        const isExclusiveRoom = plan === "exclusive-room";
         const slotRange = (isStandard || isStandardPlus || isExtended) ? getSlotRange(isExtended ? 720 : (isStandardPlus ? 480 : 360)) : "";
 
         const messageLines = [
@@ -193,5 +195,56 @@ if (enquiryForm) {
         const whatsappUrl = `https://api.whatsapp.com/send?phone=916352486412&text=${encodeURIComponent(messageLines.join("\n"))}`;
         formStatus.textContent = "Opening WhatsApp with your enquiry details...";
         window.open(whatsappUrl, "_blank", "noopener");
+    });
+}
+
+/* ===== Hero Background Switcher ===== */
+const heroSwitcher = document.querySelector("[data-hero-switcher]");
+
+if (heroSwitcher) {
+    const bgStandard = heroSwitcher.querySelector(".hero-bg--standard");
+    const bgExclusive = heroSwitcher.querySelector(".hero-bg--exclusive");
+    const labelText = heroSwitcher.querySelector("[data-room-label-text]");
+    const labelIcon = heroSwitcher.querySelector(".room-label-icon i");
+    let heroIsStandard = true;
+
+    setInterval(() => {
+        heroIsStandard = !heroIsStandard;
+        bgStandard.classList.toggle("is-active", heroIsStandard);
+        bgExclusive.classList.toggle("is-active", !heroIsStandard);
+
+        if (labelText) {
+            labelText.textContent = heroIsStandard ? "Standard Room" : "Exclusive Room";
+        }
+        if (labelIcon) {
+            labelIcon.className = heroIsStandard
+                ? "fa-solid fa-door-open"
+                : "fa-solid fa-crown";
+        }
+    }, 6000);
+}
+
+/* ===== Room Tabs (Gallery Carousel Switching) ===== */
+const roomTabsContainer = document.querySelector("[data-room-tabs]");
+
+if (roomTabsContainer) {
+    const tabs = roomTabsContainer.querySelectorAll("[data-room-tab]");
+    const carousels = document.querySelectorAll("[data-room-carousel]");
+
+    tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+            const roomType = tab.dataset.roomTab;
+
+            tabs.forEach((t) => t.classList.remove("is-active"));
+            tab.classList.add("is-active");
+
+            carousels.forEach((carousel) => {
+                if (carousel.dataset.roomCarousel === roomType) {
+                    carousel.style.display = "";
+                } else {
+                    carousel.style.display = "none";
+                }
+            });
+        });
     });
 }

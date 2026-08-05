@@ -1266,6 +1266,226 @@ select {
     border-top: 1px solid rgba(255, 253, 248, 0.14);
 }
 
+/* ===== Hero Background Switcher ===== */
+.hero-bg {
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}
+
+.hero-bg.is-active {
+    opacity: 1;
+}
+
+.hero-room-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    padding: 10px 18px 10px 14px;
+    border: 1px solid rgba(255, 253, 248, 0.22);
+    border-radius: 999px;
+    background: rgba(37, 23, 15, 0.56);
+    backdrop-filter: blur(14px);
+    color: var(--paper);
+    font-weight: 900;
+    font-size: 0.88rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    animation: labelPulse 6s ease-in-out infinite;
+}
+
+.room-label-icon {
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+    background: var(--gold);
+    color: var(--dark);
+    font-size: 0.82rem;
+}
+
+@keyframes labelPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(212, 166, 47, 0); }
+    50% { box-shadow: 0 0 0 8px rgba(212, 166, 47, 0.12); }
+}
+
+/* ===== Room Tabs (gallery) ===== */
+.room-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 28px;
+    padding: 6px;
+    border: 1px solid rgba(255, 253, 248, 0.16);
+    border-radius: 999px;
+    background: rgba(255, 253, 248, 0.07);
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.room-tab {
+    padding: 11px 22px;
+    border: none;
+    border-radius: 999px;
+    background: transparent;
+    color: rgba(255, 253, 248, 0.68);
+    font-weight: 900;
+    font-size: 0.92rem;
+    cursor: pointer;
+    transition: background 200ms ease, color 200ms ease;
+}
+
+.room-tab:hover {
+    color: var(--paper);
+    background: rgba(255, 253, 248, 0.12);
+}
+
+.room-tab.is-active {
+    color: var(--dark);
+    background: var(--gold);
+}
+
+/* ===== Room Compare (facilities) ===== */
+.room-compare {
+    width: min(var(--max), 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+}
+
+.room-compare-col {
+    position: relative;
+    padding: 32px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--paper);
+    box-shadow: 0 14px 40px rgba(37, 23, 15, 0.08);
+    transition: transform 280ms ease, box-shadow 280ms ease;
+}
+
+.room-compare-col:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 52px rgba(37, 23, 15, 0.14);
+}
+
+.room-compare-col--exclusive {
+    border-color: rgba(212, 166, 47, 0.38);
+    background: linear-gradient(160deg, rgba(212, 166, 47, 0.06), var(--paper) 38%);
+}
+
+.room-badge {
+    position: absolute;
+    top: -10px;
+    right: 18px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: var(--gold);
+    color: var(--dark);
+    font-size: 0.72rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    box-shadow: 0 6px 16px rgba(212, 166, 47, 0.32);
+}
+
+.room-compare-header {
+    text-align: center;
+    margin-bottom: 26px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--line);
+}
+
+.room-compare-header i {
+    width: 52px;
+    height: 52px;
+    display: inline-grid;
+    place-items: center;
+    margin-bottom: 14px;
+    border-radius: 999px;
+    font-size: 1.3rem;
+}
+
+.room-compare-header--standard i {
+    color: var(--dark);
+    background: rgba(37, 23, 15, 0.1);
+}
+
+.room-compare-header--exclusive i {
+    color: var(--dark);
+    background: var(--gold);
+}
+
+.room-compare-header h3 {
+    margin: 0;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.52rem;
+    line-height: 1.1;
+}
+
+.room-compare-header span {
+    display: block;
+    margin-top: 6px;
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 0.92rem;
+}
+
+.room-facility-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 4px;
+}
+
+.room-facility-list li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 13px 16px;
+    border-radius: var(--radius);
+    font-weight: 700;
+    font-size: 0.98rem;
+    transition: background 160ms ease;
+}
+
+.room-facility-list li:hover {
+    background: rgba(37, 23, 15, 0.04);
+}
+
+.room-facility-list i {
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+    border-radius: 999px;
+    font-size: 0.9rem;
+}
+
+.room-compare-col:not(.room-compare-col--exclusive) .room-facility-list i {
+    color: var(--sage);
+    background: rgba(63, 102, 82, 0.1);
+}
+
+.room-compare-col--exclusive .room-facility-list i {
+    color: var(--dark);
+    background: rgba(212, 166, 47, 0.18);
+}
+
+/* ===== Exclusive Room Plan Card ===== */
+.room-exclusive-card {
+    border-color: rgba(212, 166, 47, 0.4);
+    background: linear-gradient(160deg, rgba(212, 166, 47, 0.06), var(--paper) 36%);
+}
+
+.room-exclusive-card .plan-top span {
+    color: var(--gold-dark);
+}
+
 .reveal {
     opacity: 0;
     transform: translateY(18px);
@@ -1379,6 +1599,19 @@ select {
         padding: 116px 16px 76px;
     }
 
+    .hero-room-label {
+        font-size: 0.74rem;
+        padding: 7px 12px 7px 8px;
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+
+    .room-label-icon {
+        width: 24px;
+        height: 24px;
+        font-size: 0.68rem;
+    }
+
     .hero-overlay {
         background:
             linear-gradient(90deg, rgba(37, 23, 15, 0.95), rgba(37, 23, 15, 0.75)),
@@ -1469,6 +1702,30 @@ select {
     .flow-grid,
     .chooser-grid {
         grid-template-columns: 1fr;
+    }
+
+    .room-compare {
+        grid-template-columns: 1fr;
+    }
+
+    .room-compare-col {
+        padding: 24px;
+    }
+
+    .room-tabs {
+        gap: 4px;
+        flex-wrap: wrap;
+        border-radius: var(--radius);
+        width: calc(100% - 24px);
+        padding: 5px;
+    }
+
+    .room-tab {
+        padding: 10px 0;
+        font-size: 0.84rem;
+        flex: 1 1 0;
+        text-align: center;
+        min-width: 0;
     }
 
     .plan-card,

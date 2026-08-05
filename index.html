@@ -60,10 +60,15 @@
     </header>
 
     <main>
-        <section class="hero home-hero">
-            <div class="hero-bg" style="background-image: url('./photos of library/223436c8-5cd7-426c-996a-768c2611f64a.jpg');"></div>
+        <section class="hero home-hero" data-hero-switcher>
+            <div class="hero-bg hero-bg--standard is-active" style="background-image: url('./photos of library/223436c8-5cd7-426c-996a-768c2611f64a.jpg');"></div>
+            <div class="hero-bg hero-bg--exclusive" style="background-image: url('./new room/wide view.jpg');"></div>
             <div class="hero-overlay"></div>
             <div class="hero-content reveal">
+                <div class="hero-room-label" data-room-label>
+                    <span class="room-label-icon"><i class="fa-solid fa-door-open"></i></span>
+                    <span class="room-label-text" data-room-label-text>Standard Room</span>
+                </div>
                 <p class="eyebrow">AC study space in Nava Vadaj, Ahmedabad</p>
                 <h1>BookNest Reading Library</h1>
                 <p class="hero-copy">A calm, polished place to study, read, revise, and work without distractions. Choose a seat, settle in, and let the room do half the focusing for you.</p>
@@ -131,26 +136,71 @@
             <div class="section-heading reveal">
                 <p class="eyebrow">Inside the space</p>
                 <h2>A closer look before you visit.</h2>
-                <p>Browse the study room, seating, and atmosphere using the real library photos.</p>
+                <p>Browse both rooms — Standard and Exclusive — using real library photos.</p>
             </div>
 
-            <div class="carousel reveal" data-carousel data-autoplay="5200">
+            <div class="room-tabs" data-room-tabs>
+                <button class="room-tab is-active" data-room-tab="standard" type="button">Standard Room</button>
+                <button class="room-tab" data-room-tab="exclusive" type="button">Exclusive Room</button>
+            </div>
+
+            <div class="carousel reveal" data-carousel data-autoplay="5200" data-room-carousel="standard">
                 <div class="carousel-track">
                     <figure class="carousel-slide">
-                        <img src="./photos of library/a7e9063f-65ca-4392-b2ff-01fb7ee93828.jpg" alt="Library seating area">
-                        <figcaption>Comfortable rows for focused study.</figcaption>
+                        <img src="./photos of library/a7e9063f-65ca-4392-b2ff-01fb7ee93828.jpg" alt="Standard room seating area">
+                        <figcaption>Standard Room — Comfortable rows for focused study.</figcaption>
                     </figure>
                     <figure class="carousel-slide">
-                        <img src="./photos of library/b2025b64-4ef3-4805-8c76-f649030d92d9.jpg" alt="Library desks and chairs">
-                        <figcaption>Simple desks, clean lines, fewer distractions.</figcaption>
+                        <img src="./photos of library/b2025b64-4ef3-4805-8c76-f649030d92d9.jpg" alt="Standard room desks and chairs">
+                        <figcaption>Standard Room — Simple desks, clean lines, fewer distractions.</figcaption>
                     </figure>
                     <figure class="carousel-slide">
-                        <img src="./photos of library/f5176aee-6405-4f60-8537-ad915df995c6.jpg" alt="BookNest study room">
-                        <figcaption>Bright, tidy interiors for everyday consistency.</figcaption>
+                        <img src="./photos of library/f5176aee-6405-4f60-8537-ad915df995c6.jpg" alt="Standard room study area">
+                        <figcaption>Standard Room — Bright, tidy interiors for everyday consistency.</figcaption>
                     </figure>
                     <figure class="carousel-slide">
-                        <img src="./photos of library/223436c8-5cd7-426c-996a-768c2611f64a.jpg" alt="Quiet study seating at BookNest">
-                        <figcaption>A calm room that supports long revision hours.</figcaption>
+                        <img src="./photos of library/223436c8-5cd7-426c-996a-768c2611f64a.jpg" alt="Standard room quiet seating">
+                        <figcaption>Standard Room — A calm space for long revision hours.</figcaption>
+                    </figure>
+                </div>
+                <button class="carousel-btn carousel-prev" type="button" data-carousel-prev aria-label="Previous photo">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn carousel-next" type="button" data-carousel-next aria-label="Next photo">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+                <div class="carousel-dots" data-carousel-dots aria-label="Gallery controls"></div>
+            </div>
+
+            <div class="carousel reveal" data-carousel data-autoplay="5200" data-room-carousel="exclusive" style="display:none;">
+                <div class="carousel-track">
+                    <figure class="carousel-slide">
+                        <img src="./new room/wide view.jpg" alt="Exclusive room wide view">
+                        <figcaption>Exclusive Room — Spacious premium study environment.</figcaption>
+                    </figure>
+                    <figure class="carousel-slide">
+                        <img src="./new room/seat with chair.jpg" alt="Exclusive room seat with chair">
+                        <figcaption>Exclusive Room — Premium rolling chairs with wide desks.</figcaption>
+                    </figure>
+                    <figure class="carousel-slide">
+                        <img src="./new room/seat with chair 2.jpg" alt="Exclusive room seating">
+                        <figcaption>Exclusive Room — Desk light and charging socket at every seat.</figcaption>
+                    </figure>
+                    <figure class="carousel-slide">
+                        <img src="./new room/chair.jpg" alt="Exclusive room premium chair">
+                        <figcaption>Exclusive Room — Ergonomic rolling chairs for extended sessions.</figcaption>
+                    </figure>
+                    <figure class="carousel-slide">
+                        <img src="./new room/locker.jpg" alt="Exclusive room spacious lockers">
+                        <figcaption>Exclusive Room — Spacious personal lockers for your belongings.</figcaption>
+                    </figure>
+                    <figure class="carousel-slide">
+                        <img src="./new room/IMG_20260805_201148850_HDR.jpg" alt="Exclusive room interior">
+                        <figcaption>Exclusive Room — Bright, modern interiors with AC comfort.</figcaption>
+                    </figure>
+                    <figure class="carousel-slide">
+                        <img src="./new room/IMG_20260805_201204030.jpg" alt="Exclusive room layout">
+                        <figcaption>Exclusive Room — Designed for a peaceful, focused environment.</figcaption>
                     </figure>
                 </div>
                 <button class="carousel-btn carousel-prev" type="button" data-carousel-prev aria-label="Previous photo">
@@ -221,36 +271,62 @@
                     <p>Best if you want unlimited access plus personal storage.</p>
                     <a class="btn btn-outline" href="enquiry.html?plan=premium">Enquire for Premium</a>
                 </article>
+
+                <article class="plan-card room-exclusive-card reveal">
+                    <div class="popular-tag" style="background: var(--gold);">New Room</div>
+                    <div class="plan-top">
+                        <h3>Exclusive Room</h3>
+                        <span>16 hours daily &middot; 7 AM to 12 AM</span>
+                    </div>
+                    <p class="price">&#8377;1,800 <small>/month</small></p>
+                    <p>Premium chairs, wide tables, desk light, charging socket, spacious lockers, and a peaceful environment.</p>
+                    <a class="btn btn-gold" href="enquiry.html?plan=exclusive-room">Enquire for Exclusive Room</a>
+                </article>
             </div>
         </section>
 
         <section class="section section-muted">
             <div class="section-heading reveal">
                 <p class="eyebrow">Facilities</p>
-                <h2>Small details that make long sessions easier.</h2>
+                <h2>Two rooms. One goal: uninterrupted focus.</h2>
             </div>
 
-            <div class="facility-grid">
-                <article class="facility-card reveal">
-                    <i class="fa-solid fa-snowflake"></i>
-                    <h3>Climate controlled</h3>
-                    <p>Fully air-conditioned study environment for steady comfort.</p>
-                </article>
-                <article class="facility-card reveal">
-                    <i class="fa-solid fa-wifi"></i>
-                    <h3>Fast Wi-Fi</h3>
-                    <p>Reliable connectivity for research, forms, lectures, and work.</p>
-                </article>
-                <article class="facility-card reveal">
-                    <i class="fa-solid fa-lock"></i>
-                    <h3>Locker option</h3>
-                    <p>Premium members can keep essentials safely at the library.</p>
-                </article>
-                <article class="facility-card reveal">
-                    <i class="fa-solid fa-hand-sparkles"></i>
-                    <h3>Clean essentials</h3>
-                    <p>Mineral water and well-maintained washrooms for daily use.</p>
-                </article>
+            <div class="room-compare" id="room-compare">
+                <div class="room-compare-col reveal">
+                    <div class="room-compare-header room-compare-header--standard">
+                        <i class="fa-solid fa-chair"></i>
+                        <h3>Standard Room</h3>
+                        <span>Our classic study space</span>
+                    </div>
+                    <ul class="room-facility-list">
+                        <li><i class="fa-solid fa-snowflake"></i> Air-conditioned</li>
+                        <li><i class="fa-solid fa-wifi"></i> High-speed Wi-Fi</li>
+                        <li><i class="fa-solid fa-bottle-water"></i> Mineral water</li>
+                        <li><i class="fa-solid fa-restroom"></i> Clean washrooms</li>
+                        <li><i class="fa-solid fa-volume-xmark"></i> Quiet environment</li>
+                        <li><i class="fa-solid fa-lock"></i> Locker (Premium plan)</li>
+                    </ul>
+                </div>
+
+                <div class="room-compare-col room-compare-col--exclusive reveal">
+                    <div class="room-badge">New</div>
+                    <div class="room-compare-header room-compare-header--exclusive">
+                        <i class="fa-solid fa-crown"></i>
+                        <h3>Exclusive Room</h3>
+                        <span>Premium upgrade &middot; 16 hrs daily &middot; 7 AM to 12 AM</span>
+                    </div>
+                    <ul class="room-facility-list">
+                        <li><i class="fa-solid fa-table"></i> Wide tables</li>
+                        <li><i class="fa-solid fa-box-open"></i> Spacious lockers</li>
+                        <li><i class="fa-solid fa-lightbulb"></i> Desk light &amp; charging socket</li>
+                        <li><i class="fa-solid fa-chair"></i> Premium rolling chairs</li>
+                        <li><i class="fa-solid fa-snowflake"></i> Air-conditioned</li>
+                        <li><i class="fa-solid fa-bottle-water"></i> Mineral water</li>
+                        <li><i class="fa-solid fa-wifi"></i> High-speed Wi-Fi</li>
+                        <li><i class="fa-solid fa-restroom"></i> Clean washrooms</li>
+                        <li><i class="fa-solid fa-leaf"></i> Peaceful environment</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="center-action reveal">
